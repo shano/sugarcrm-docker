@@ -1,4 +1,4 @@
-FROM php:5.5-apache
+FROM php:5.6-apache
 
 MAINTAINER Ivica Nedeljkovic <ivica.nedeljkovic@gmail.com>
 
@@ -55,6 +55,11 @@ RUN docker-php-ext-install exif
 
 ## install bcmath
 RUN docker-php-ext-install bcmath
+
+## install JSMin
+RUN pecl install jsmin-1.1.0 && \
+    docker-php-ext-enable jsmin && \
+    rm /tmp/pear -rf
 
 # Install XDebug
 RUN pecl install -o -f xdebug \
