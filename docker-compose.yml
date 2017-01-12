@@ -1,5 +1,6 @@
 sugarcrm:
-  image: intelestream/sugarcrm:latest
+  #image: intelestream/sugarcrm:latest
+  build: .
   command: apache2-foreground
   links:
     - mysql_crm
@@ -38,5 +39,5 @@ phpmyadmin:
     - 8181:80
   environment:
     - PMA_HOST=mysql_crm
-    - PMA_USER=sugarcrm
+    - PMA_USER=root
     - PMA_PASSWORD=sugarcrm
