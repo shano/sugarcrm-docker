@@ -99,4 +99,5 @@ RUN service cron start
 ADD . .
 
 # Setup our site config
-COPY ./docker/config/apache/sites.conf /etc/apache2/sites-enabled/
+RUN rm /etc/apache2/sites-enabled/000-default.conf
+COPY ./docker/config/apache/000-default.conf /etc/apache2/sites-enabled/000-default.conf
