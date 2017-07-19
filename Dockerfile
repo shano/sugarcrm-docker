@@ -83,6 +83,8 @@ RUN a2enmod rewrite negotiation headers ssl
 ## PHP
 COPY ./docker/config/php/php.ini /usr/local/etc/php/
 
+VOLUME ["/app"]
+
 WORKDIR /app
 
 ENV APACHE_RUN_DIR /var/run/apache2
